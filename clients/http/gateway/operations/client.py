@@ -182,8 +182,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Ответ от сервера (объект MakeFeeOperationResponseSchema).
         """
         request = MakeFeeOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=55.77,
             card_id=card_id,
             account_id=account_id
         )
@@ -199,8 +197,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Ответ от сервера (объект MakeTopUpOperationResponseSchema).
         """
         request = MakeTopUpOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=100.33,
             card_id=card_id,
             account_id=account_id
         )
@@ -216,8 +212,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Ответ от сервера (объект MakeCashbackOperationResponseSchema).
         """
         request = MakeCashbackOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=30.15,
             card_id=card_id,
             account_id=account_id
         )
@@ -233,8 +227,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Ответ от сервера (объект MakeTransferOperationResponseSchema).
         """
         request = MakeTransferOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=204.67,
             card_id=card_id,
             account_id=account_id
         )
@@ -250,11 +242,8 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Ответ от сервера (объект MakePurchaseOperationResponseSchema).
         """
         request = MakePurchaseOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=576.02,
             card_id=card_id,
-            account_id=account_id,
-            category="cinema"
+            account_id=account_id
         )
         response = self.make_purchase_operation_api(request)
         return MakePurchaseOperationResponseSchema.model_validate_json(response.text)
@@ -268,8 +257,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Ответ от сервера (объект MakeBillPaymentOperationResponseSchema).
         """
         request = MakeBillPaymentOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=2034.07,
             card_id=card_id,
             account_id=account_id
         )
@@ -285,8 +272,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Ответ от сервера (объект MakeCashWithdrawalOperationResponseSchema).
         """
         request = MakeCashWithdrawalOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=5000.00,
             card_id=card_id,
             account_id=account_id
         )
