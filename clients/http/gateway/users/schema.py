@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field, EmailStr, ConfigDict
 
+from tools.fakers import fake
 
 # Добавили суффикс Schema вместо Dict
 class UserSchema(BaseModel):  # Наследуем от BaseModel вместо TypedDict
@@ -29,11 +30,16 @@ class CreateUserRequestSchema(BaseModel):  # Наследуем от BaseModel �
     """
     model_config = ConfigDict(populate_by_name=True)
 
-    email: EmailStr
-    last_name: str = Field(alias="lastName")  # Использовали alias
-    first_name: str = Field(alias="firstName")  # Использовали alias
-    middle_name: str = Field(alias="middleName")  # Использовали alias
-    phone_number: str = Field(alias="phoneNumber")  # Использовали alias
+    # Добавили генерацию случайного email
+    email: EmailStr = Field(default_factory=fake.email)
+    # Добавили генерацию случайной фамилии
+    last_name: str = Field(alias="lastName", default_factory=fake.last_name)
+    # Добавили генерацию случайного имени
+    first_name: str = Field(alias="firstName", default_factory=fake.first_name)
+    # Добавили генерацию случайного отчества
+    middle_name: str = Field(alias="middleName", default_factory=fake.middle_name)
+    # Добавили генерацию случайного номер телефона
+    phone_number: str = Field(alias="phoneNumber", default_factory=fake.phone_number)
 
 
 # Добавили суффикс Schema вместо Dict
