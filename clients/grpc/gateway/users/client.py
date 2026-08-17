@@ -2,12 +2,9 @@ from grpc import Channel
 
 from clients.grpc.client import GRPCClient
 from clients.grpc.gateway.client import build_gateway_grpc_client
-from contracts.services.gateway.users.rpc_create_user_pb2 import \
-    CreateUserRequest, CreateUserResponse
-from contracts.services.gateway.users.rpc_get_user_pb2 import GetUserRequest, \
-    GetUserResponse
-from contracts.services.gateway.users.users_gateway_service_pb2_grpc import \
-    UsersGatewayServiceStub
+from contracts.services.gateway.users.rpc_create_user_pb2 import CreateUserRequest, CreateUserResponse
+from contracts.services.gateway.users.rpc_get_user_pb2 import GetUserRequest, GetUserResponse
+from contracts.services.gateway.users.users_gateway_service_pb2_grpc import UsersGatewayServiceStub
 from tools.fakers import fake
 
 
@@ -25,8 +22,7 @@ class UsersGatewayGRPCClient(GRPCClient):
         """
         super().__init__(channel)
 
-        self.stub = UsersGatewayServiceStub(
-            channel)  # gRPC-стаб, сгенерированный из .proto
+        self.stub = UsersGatewayServiceStub(channel)  # gRPC-стаб, сгенерированный из .proto
 
     def get_user_api(self, request: GetUserRequest) -> GetUserResponse:
         """
