@@ -9,8 +9,9 @@ class OpenDebitCardAccountScenarioUser(User):
     host = "localhost"
     wait_time = between(1, 3)
 
-    # Поле, в котором будет храниться экземпляр нашего API клиента
+    # Поля, в которых будут храниться экземпляры нашего API клиента
     users_gateway_client: UsersGatewayHTTPClient
+    accounts_gateway_client: AccountsGatewayHTTPClient
     # Поле, куда мы сохраним ответ после создания пользователя
     create_user_response: CreateUserResponseSchema
 
