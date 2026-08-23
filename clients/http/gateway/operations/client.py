@@ -187,7 +187,7 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Ответ от сервера (объект GetOperationsSummaryResponseSchema).
         """
         query = GetOperationsSummaryQuerySchema(account_id=account_id)
-        response = self.get_operations_api(query)
+        response = self.get_operations_summary_api(query)
         return GetOperationsSummaryResponseSchema.model_validate_json(response.text)
 
     def make_fee_operation(self, card_id: str, account_id: str) -> MakeFeeOperationResponseSchema:
